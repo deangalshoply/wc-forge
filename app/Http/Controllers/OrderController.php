@@ -65,9 +65,8 @@ class OrderController extends Controller
         $data['fee_lines'] = json_encode($data['shipping_lines']);
         $data['coupon_lines'] = json_encode($data['shipping_lines']);
 
-        // Order::create($data);
-        // Http::post('http://localhost:8001/order/status',['id' => Order::create($request->all())->id,'status' => 'success']);
-        return  $data;
+        
+        return  Order::create($data);
 
     }
 
