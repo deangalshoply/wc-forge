@@ -89,9 +89,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $order_id)
     {
-        $order = Order::find($id);
+        $order = Order::where('order_id', $order_id);
         $order->update($request->all());
         return $order;    
     }
@@ -102,11 +102,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($order_id)
     {
-       return Order::destroy($id);
+       return Order::where('order_id', $order_id)->delete();
     }
-
      /**
      * Search for a name
      *
