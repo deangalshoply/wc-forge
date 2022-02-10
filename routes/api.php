@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,9 @@ use App\Http\Controllers\OrderController;
 |
 */
 Route::resource('order',OrderController::class);
+Route::resource('item',OrderController::class);
 Route::post('fetch',[OrderController::class,'fetch']);
+Route::post('fetchitems',[ItemController::class,'fetch']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
